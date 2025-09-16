@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Netflix Việt Nam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .bg-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("https://res.cloudinary.com/duknvzvix/image/upload/v1757750495/netflix-bg_ahuwjz.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+    .curved-divider {
+      background: linear-gradient(45deg, #dc2626, #7c3aed);
+      height: 8px;
+      border-radius: 4px;
+    }
+    .number-outline {
+      font-size: 90px;
+      font-weight: 800;
+      color: black;
+      text-shadow: 3px 3px 0 white;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .hidden {
+      display: none;
+    }
+    #spoofLink {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("https://res.cloudinary.com/duknvzvix/image/upload/v1757750495/netflix-bg_ahuwjz.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+    #netflixButton {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* CSS hiệu ứng hacker text */
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    .animate-typing {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid;
+      width: 0;
+      animation: typing 3s steps(30, end) forwards, blink .75s step-end infinite;
+    }
+  </style>
+</head>
+<body>
+<!-- Trang ban đầu -->
+<div id="spoofLink" class="min-h-screen flex items-center justify-center">
+  <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full text-center">
+    <img
+            src="https://res.cloudinary.com/duknvzvix/image/upload/v1757756260/netflix-logo-no-background_tknftb.png"
+            alt="Netflix Logo"
+            class="w-32 mx-auto mb-4"
+    />
+    <h1 class="text-3xl font-bold text-gray-800 mb-4">Khám phá Netflix Việt Nam!</h1>
+    <p class="text-gray-600 mb-6">
+      Xem phim, series không giới hạn với giá chỉ từ 74.000đ. Đăng ký ngay để nhận ưu đãi đặc biệt!
+    </p>
+    <a
+            href="https://www.netflix.com/vn/"
+            id="netflixButton"
+            class="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+    >
+      Truy cập Netflix Ngay →
+    </a>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div id="main-content" class="bg-black text-white hidden">
+  <!-- Thanh trình duyệt -->
+  <div class="w-full bg-[#202124] text-white font-sans">
+    <div class="flex items-center h-10 px-2 gap-2">
+      <div class="bg-[#2d2d2d] rounded-t-lg px-3 py-1 flex items-center gap-2 text-sm">
+        <img
+                src="https://res.cloudinary.com/duknvzvix/image/upload/v1757756260/netflix-logo-no-background_tknftb.png"
+                class="w-4 h-4"
+        />
+        <span>Netflix Việt Nam – Xem series...</span>
+        <span class="ml-2 text-gray-400 cursor-pointer">✕</span>
+      </div>
+      <div class="w-6 h-6 flex items-center justify-center rounded-full hover:bg-gray-600 cursor-pointer text-lg">
+        +
+      </div>
+      <div class="flex-1"></div>
+      <div class="flex items-center gap-4 text-gray-300 text-sm">
+        <span class="cursor-pointer">—</span>
+        <span class="cursor-pointer">▢</span>
+        <span class="cursor-pointer">✕</span>
+      </div>
+    </div>
+    <div class="flex items-center h-12 px-3 gap-2 bg-[#2d2d2d]">
+      <button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-700 text-gray-400">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-700 text-gray-400">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+      <button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-700 text-gray-400">
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v16l6-4 6 4V4" />
+        </svg>
+      </button>
+      <div class="flex-1 flex items-center bg-[#3c3c3c] border border-[#5f6368] rounded-full px-3 py-1 text-sm text-gray-300">
+        <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+        </svg>
+        <input
+                type="text"
+                value="netflix.com/vn/"
+                class="bg-transparent flex-1 outline-none text-gray-200"
+                readonly
+        />
+        <svg class="w-4 h-4 ml-4 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm0 2c-2.761 0-5 2.239-5 5h10c0-2.761-2.239-5-5-5z" />
+        </svg>
+        <svg class="w-3 h-3 ml-4 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v3m0 0v3m0-3h3m-3 0H9m4.5 7.5v3m0 0v3m0-3h3m-3 0H9" />
+        </svg>
+      </div>
+      <div class="flex items-center gap-1 bg-[#3c3c3c] rounded-full px-3 py-1 text-sm ml-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5h14v14H5z" />
+        </svg>
+        Ẩn danh
+      </div>
+      <div class="w-6 h-6 flex items-center justify-center text-gray-400 ml-2 cursor-pointer">
+        ⋮
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="relative z-50 px-4 py-6 md:px-8">
+    <nav class="flex items-center justify-between">
+      <div class="text-red-600 text-2xl md:text-3xl font-bold">NETFLIX</div>
+      <div class="flex items-center gap-4">
+        <select class="bg-transparent border border-gray-400 text-white px-3 py-1 rounded text-sm">
+          <option value="vi" class="bg-black">🌐 Tiếng Việt</option>
+        </select>
+        <button class="bg-red-600 hover:bg-red-700 px-4 py-1 rounded text-sm font-medium">
+          Đăng nhập
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-hero lg:min-h-[calc(100vh-88px)] md:min-h-[600px] flex items-center justify-center px-4 -mt-20 pt-20">
+    <div class="text-center max-w-2xl">
+      <h1 class="text-3xl lg:text-5xl font-bold mb-4">
+        Phim, series không giới hạn<br />và nhiều nội dung khác
+      </h1>
+      <p class="text-lg lg:text-xl mb-2">Chỉ từ 74.000 đ. Hủy bất kỳ lúc nào.</p>
+      <p class="text-sm lg:text-base mb-6">
+        Bạn đã sẵn sàng xem chưa? Nhập email để tạo hoặc kích hoạt lại tư cách thành viên của bạn.
+      </p>
+      <form class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
+        <input
+                type="email"
+                placeholder="Địa chỉ email"
+                class="flex-1 px-4 py-3 bg-black/50 border border-gray-400 rounded text-white placeholder-gray-400"
+        />
+        <button
+                type="submit"
+                class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded font-medium text-lg whitespace-nowrap"
+        >
+          Bắt đầu →
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Trending Section -->
+  <section class="py-12 px-4 lg:px-[130px] md:px-[100px] px-[25px]">
+    <h2 class="text-2xl font-bold mb-6">Hiện đang thịnh hành</h2>
+    <div class="relative">
+      <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#3c3c3c] hover:bg-[#565657] text-white p-1 py-6 rounded-md">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <div id="slider" class="flex px-8 gap-12 overflow-x-auto scroll-smooth pb-4 no-scrollbar">
+        <div
+                class="relative min-w-48 h-72 rounded-md group cursor-pointer transform transition duration-300 ease-in-out hover:scale-105"
+                style="background: url('https://st.download.com.vn/data/image/2025/01/17/bo-tu-bao-thu.jpg'); background-size: cover; background-position: center;"
+        >
+          <div class="absolute -left-6 bottom-0">
+            <span class="number-outline">1</span>
+          </div>
+          <div class="absolute top-2 right-2 w-6 h-8 bg-red-600 flex items-center justify-center text-xs font-bold">
+            N
+          </div>
+        </div>
+        <div
+                class="relative min-w-48 h-72 rounded-md group cursor-pointer transform transition duration-300 ease-in-out hover:scale-105"
+                style="background: url('https://image.tmdb.org/t/p/original/36xXlhEpQqVVPuiZhfoQuaY4OlA.jpg'); background-size: cover; background-position: center;"
+        >
+          <div class="absolute -left-6 bottom-0">
+            <span class="number-outline">2</span>
+          </div>
+          <div class="absolute top-2 right-2 w-6 h-8 bg-red-600 flex items-center justify-center text-xs font-bold">
+            N
+          </div>
+        </div>
+        <div
+                class="relative min-w-48 h-72 rounded-md group cursor-pointer transform transition duration-300 ease-in-out hover:scale-105"
+                style="background: url('https://images.ctfassets.net/4cd45et68cgf/2vkRjiNH9IAakdmgpINHks/45149cae40ad3e8aea312e059451a846/ENUS_YouandEverythingElse_TeaserKA_REJ_Vertical_RGB_PRE.jpg?w=1200'); background-size: cover; background-position: center;"
+        >
+          <div class="absolute -left-6 bottom-0">
+            <span class="number-outline">3</span>
+          </div>
+          <div class="absolute top-2 right-2 w-6 h-8 bg-red-600 flex items-center justify-center text-xs font-bold">
+            N
+          </div>
+        </div>
+        <div
+                class="relative min-w-48 h-72 rounded-md group cursor-pointer transform transition duration-300 ease-in-out hover:scale-105"
+                style="background: url('https://cdn.mhnse.com/news/photo/202506/420528_518353_3445.png'); background-size: cover; background-position: center;"
+        >
+          <div class="absolute -left-6 bottom-0">
+            <span class="number-outline">4</span>
+          </div>
+          <div class="absolute top-2 right-2 w-6 h-8 bg-red-600 flex items-center justify-center text-xs font-bold">
+            N
+          </div>
+        </div>
+        <div
+                class="relative min-w-48 h-72 rounded-md group cursor-pointer transform transition duration-300 ease-in-out hover:scale-105"
+                style="background: url('https://images2.thanhnien.vn/528068263637045248/2024/2/20/special-poster-2-mai-17084211313531000860296.jpg'); background-size: cover; background-position: center;"
+        >
+          <div class="absolute -left-6 bottom-0">
+            <span class="number-outline">5</span>
+          </div>
+          <div class="absolute top-2 right-2 w-6 h-8 bg-red-600 flex items-center justify-center text-xs font-bold">
+            N
+          </div>
+        </div>
+        <div
+                class="relative min-w-48 h-72 rounded-md group cursor-pointer transform transition duration-300 ease-in-out hover:scale-105"
+                style="background: url('https://upload.wikimedia.org/wikipedia/vi/thumb/9/93/KPDHposter.jpeg/250px-KPDHposter.jpeg'); background-size: cover; background-position: center;"
+        >
+          <div class="absolute -left-6 bottom-0">
+            <span class="number-outline">6</span>
+          </div>
+          <div class="absolute top-2 right-2 w-6 h-8 bg-red-600 flex items-center justify-center text-xs font-bold">
+            N
+          </div>
+        </div>
+        <div
+                class="relative min-w-48 h-72 rounded-md group cursor-pointer transform transition duration-300 ease-in-out hover:scale-105"
+                style="background: url('https://www.motchill23.com/temp/upload/images/phim/phim/em-chi-muon-minh-anh.2025.jpg'); background-size: cover; background-position: center;"
+        >
+          <div class="absolute -left-6 bottom-0">
+            <span class="number-outline">7</span>
+          </div>
+          <div class="absolute top-2 right-2 w-6 h-8 bg-red-600 flex items-center justify-center text-xs font-bold">
+            N
+          </div>
+        </div>
+        <div
+                class="relative min-w-48 h-72 rounded-md group cursor-pointer transform transition duration-300 ease-in-out hover:scale-105"
+                style="background: url('https://image.tmdb.org/t/p/original/tvVVdUf7GuUGpCYg10Sj5RIz0cf.jpg'); background-size: cover; background-position: center;"
+        >
+          <div class="absolute -left-6 bottom-0">
+            <span class="number-outline">8</span>
+          </div>
+          <div class="absolute top-2 right-2 w-6 h-8 bg-red-600 flex items-center justify-center text-xs font-bold">
+            N
+          </div>
+        </div>
+        <div
+                class="relative min-w-48 h-72 rounded-md group cursor-pointer transform transition duration-300 ease-in-out hover:scale-105"
+                style="background: url('https://cdn.mhnse.com/news/photo/202506/420528_518353_3445.png'); background-size: cover; background-position: center;"
+        >
+          <div class="absolute -left-6 bottom-0">
+            <span class="number-outline">9</span>
+          </div>
+          <div class="absolute top-2 right-2 w-6 h-8 bg-red-600 flex items-center justify-center text-xs font-bold">
+            N
+          </div>
+        </div>
+        <div
+                class="relative min-w-48 h-72 rounded-md group cursor-pointer transform transition duration-300 ease-in-out hover:scale-105"
+                style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3EYK4IaZVm_BKSfQVEADZ0-gpuh1ZvaWH7w&s'); background-size: cover; background-position: center;"
+        >
+          <div class="absolute -left-6 bottom-0">
+            <span class="number-outline">10</span>
+          </div>
+          <div class="absolute top-2 right-2 w-6 h-8 bg-red-600 flex items-center justify-center text-xs font-bold">
+            N
+          </div>
+        </div>
+      </div>
+      <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#3c3c3c] hover:bg-[#565657] text-white p-1 py-6 rounded-md">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-12 px-4 lg:px-[130px] md:px-[100px] px-[25px]">
+    <h2 class="text-2xl font-bold mb-8">Thêm lý do để tham gia</h2>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="bg-gradient-to-br from-purple-900/50 to-pink-900/50 p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-3">Thưởng thức trên TV của bạn</h3>
+        <p class="text-gray-300 text-sm">
+          Xem trên TV thông minh, PlayStation, Xbox, Chromecast, Apple TV, đầu phát Blu-ray và nhiều thiết bị khác.
+        </p>
+        <div class="mt-4 text-pink-400">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <rect x="2" y="4" width="20" height="12" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M8 21l4-7 4 7" />
+          </svg>
+        </div>
+      </div>
+      <div class="bg-gradient-to-br from-blue-900/50 to-purple-900/50 p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-3">Tải xuống nội dung để xem ngoại tuyến</h3>
+        <p class="text-gray-300 text-sm">
+          Lưu lại những nội dung yêu thích một cách dễ dàng và luôn có thứ để xem.
+        </p>
+      </div>
+      <div class="bg-gradient-to-br from-green-900/50 to-blue-900/50 p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-3">Xem ở mọi nơi</h3>
+        <p class="text-gray-300 text-sm">
+          Phát trực tiếp không giới hạn phim và chương trình truyền hình trên điện thoại, máy tính bảng, máy tính xách tay và TV.
+        </p>
+        <div class="mt-4 text-green-400">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <rect x="2" y="2" width="20" height="20" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M8 11l3 3 7-7" />
+          </svg>
+        </div>
+      </div>
+      <div class="bg-gradient-to-br from-yellow-900/50 to-red-900/50 p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-3">Tạo hồ sơ cho trẻ em</h3>
+        <p class="text-gray-300 text-sm">
+          Gửi trẻ em tới những cuộc phiêu lưu cùng các nhân vật được yêu thích trong một không gian riêng. Hoàn toàn miễn phí đi kèm với tư cách thành viên của bạn.
+        </p>
+        <div class="mt-4 text-yellow-400">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-12 px-4 lg:px-[130px] md:px-[100px] px-[25px]">
+    <h2 class="text-2xl font-bold mb-8">Câu hỏi thường gặp</h2>
+    <div class="space-y-2 max-w-4xl">
+      <details class="bg-gray-800 hover:bg-gray-700 transition-colors">
+        <summary class="px-6 py-4 cursor-pointer font-medium text-lg">Netflix là gì?</summary>
+        <div class="px-6 pb-4 text-gray-300">
+          Netflix là một dịch vụ phát trực tuyến cung cấp nhiều loại chương trình truyền hình, phim và nội dung gốc đoạt giải thưởng trên hàng nghìn thiết bị có kết nối Internet.
+        </div>
+      </details>
+      <details class="bg-gray-800 hover:bg-gray-700 transition-colors">
+        <summary class="px-6 py-4 cursor-pointer font-medium text-lg">Tôi phải trả bao nhiêu tiền để xem Netflix?</summary>
+        <div class="px-6 pb-4 text-gray-300">
+          Xem Netflix trên điện thoại thông minh, máy tính bảng, TV thông minh, máy tính xách tay hoặc thiết bị phát trực tuyến của bạn, tất cả chỉ với một khoản phí cố định hàng tháng.
+        </div>
+      </details>
+      <details class="bg-gray-800 hover:bg-gray-700 transition-colors">
+        <summary class="px-6 py-4 cursor-pointer font-medium text-lg">Tôi có thể xem ở đâu?</summary>
+        <div class="px-6 pb-4 text-gray-300">
+          Xem ở mọi nơi, bất cứ lúc nào. Đăng nhập vào tài khoản Netflix của bạn để xem ngay lập tức trên web tại netflix.com từ máy tính cá nhân hoặc trên bất kỳ thiết bị nào có kết nối Internet.
+        </div>
+      </details>
+      <details class="bg-gray-800 hover:bg-gray-700 transition-colors">
+        <summary class="px-6 py-4 cursor-pointer font-medium text-lg">Làm thế nào để hủy?</summary>
+        <div class="px-6 pb-4 text-gray-300">
+          Netflix rất linh hoạt. Không có hợp đồng phiền phức và không có cam kết. Bạn có thể dễ dàng hủy tài khoản trực tuyến chỉ bằng hai cú nhấp chuột.
+        </div>
+      </details>
+      <details class="bg-gray-800 hover:bg-gray-700 transition-colors">
+        <summary class="px-6 py-4 cursor-pointer font-medium text-lg">Tôi có thể xem gì trên Netflix?</summary>
+        <div class="px-6 pb-4 text-gray-300">
+          Netflix có thư viện phong phú với các bộ phim truyện, phim tài liệu, chương trình truyền hình, anime, Netflix Original đoạt giải thưởng và nhiều nội dung khác.
+        </div>
+      </details>
+      <details class="bg-gray-800 hover:bg-gray-700 transition-colors">
+        <summary class="px-6 py-4 cursor-pointer font-medium text-lg">Netflix có phù hợp cho trẻ em không?</summary>
+        <div class="px-6 pb-4 text-gray-300">
+          Trải nghiệm Netflix Kids được bao gồm trong tư cách thành viên để mang đến cho phụ huynh quyền kiểm soát trong khi trẻ em thưởng thức các chương trình truyền hình và phim phù hợp với gia đình trong không gian riêng của chúng.
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- Email Signup Section -->
+  <section class="py-12 px-4 md:px-8 text-center">
+    <p class="text-sm md:text-base mb-6">
+      Bạn đã sẵn sàng xem chưa? Nhập email để tạo hoặc kích hoạt lại tư cách thành viên của bạn.
+    </p>
+    <form class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
+      <input
+              type="email"
+              placeholder="Địa chỉ email"
+              class="flex-1 px-4 py-3 bg-black/50 border border-gray-400 rounded text-white placeholder-gray-400"
+      />
+      <button
+              type="submit"
+              class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded font-medium text-lg whitespace-nowrap"
+      >
+        Bắt đầu →
+      </button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-4 md:px-8 border-t border-gray-800">
+    <p class="text-gray-400 text-sm mb-6">Bạn có câu hỏi? Liên hệ với chúng tôi.</p>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-sm text-gray-400 mb-8">
+      <div class="space-y-2">
+        <a href="#" class="block hover:text-white">Câu hỏi thường gặp</a>
+        <a href="#" class="block hover:text-white">Trung tâm đa phương tiện</a>
+        <a href="#" class="block hover:text-white">Các cách xem</a>
+        <a href="#" class="block hover:text-white">Tuy chọn cookie</a>
+        <a href="#" class="block hover:text-white">Kiểm tra tốc độ</a>
+      </div>
+      <div class="space-y-2">
+        <a href="#" class="block hover:text-white">Trung tâm trợ giúp</a>
+        <a href="#" class="block hover:text-white">Quan hệ với nhà đầu tư</a>
+        <a href="#" class="block hover:text-white">Điều khoản sử dụng</a>
+        <a href="#" class="block hover:text-white">Thông tin doanh nghiệp</a>
+      </div>
+      <div class="space-y-2">
+        <a href="#" class="block hover:text-white">Tài khoản</a>
+        <a href="#" class="block hover:text-white">Việc làm</a>
+        <a href="#" class="block hover:text-white">Quyền riêng tư</a>
+        <a href="#" class="block hover:text-white">Liên hệ với chúng tôi</a>
+      </div>
+      <div class="space-y-2">
+        <a href="#" class="block hover:text-white">Thẻ quà tặng</a>
+        <a href="#" class="block hover:text-white">Điều khoản sử dụng</a>
+        <a href="#" class="block hover:text-white">Thông báo pháp lý</a>
+        <a href="#" class="block hover:text-white">Chỉ có trên Netflix</a>
+      </div>
+    </div>
+    <div class="mb-6">
+      <select class="bg-transparent border border-gray-400 text-white px-3 py-1 rounded text-sm">
+        <option value="vi" class="bg-black">🌐 Tiếng Việt</option>
+      </select>
+    </div>
+    <p class="text-gray-400 text-sm">Netflix Việt Nam</p>
+  </footer>
+</div>
+
+<!-- Overlay -->
+<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
+
+<!-- Modal danh sách sinh viên -->
+<div id="student-list" class="fixed inset-0 flex items-center justify-center hidden z-50 bg-black/70 backdrop-blur-sm">
+  <div class="relative bg-gradient-to-b from-gray-900 to-black rounded-2xl shadow-2xl p-6 w-96 text-center border border-red-600/40">
+
+    <!-- Banner / Logo -->
+    <img src="hacker.jpg"
+         alt="Logo"
+         class="mx-auto mb-4 w-36 h-auto drop-shadow-[0_0_15px_rgba(239,68,68,0.7)]">
+
+    <!-- Hacker text -->
+    <p class="text-green-400 font-mono text-sm mb-4 animate-typing overflow-hidden whitespace-nowrap border-r-2 border-green-400 pr-2">
+      Đã ghé thăm. Không phá, chỉ chill. 😎
+    </p>
+
+    <!-- Tiêu đề -->
+    <h2 class="text-2xl font-extrabold text-red-500 tracking-wide mb-6">
+      🎬 Danh sách sinh viên
+    </h2>
+
+    <!-- Danh sách sinh viên -->
+    <div class="space-y-3 text-gray-200">
+      <div class="p-3 bg-gray-800/70 rounded-lg hover:bg-red-600/60 transition duration-300">
+        📌 Lục Thới Trọng - <span class="font-semibold">22110254</span>
+      </div>
+      <div class="p-3 bg-gray-800/70 rounded-lg hover:bg-red-600/60 transition duration-300">
+        📌 Bùi Đức Lộc - <span class="font-semibold">22110177</span>
+      </div>
+      <div class="p-3 bg-gray-800/70 rounded-lg hover:bg-red-600/60 transition duration-300">
+        📌 Cao Thị Xuân Hương - <span class="font-semibold">22110156</span>
+      </div>
+      <div class="p-3 bg-gray-800/70 rounded-lg hover:bg-red-600/60 transition duration-300">
+        📌 Trần Nhật Minh - <span class="font-semibold">22110183</span>
+      </div>
+    </div>
+
+    <!-- Nút đóng -->
+    <button onclick="closeModal()"
+            class="mt-8 px-5 py-2.5 bg-gradient-to-r from-red-600 to-red-800
+                   text-white font-semibold rounded-lg shadow-lg flex items-center justify-center gap-2
+                   hover:scale-105 hover:from-red-500 hover:to-red-700 transition duration-300 mx-auto">
+      <span>Đóng</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  <!-- Thẻ audio -->
+  <audio id="modal-audio" src="sound/mario-death.mp3" preload="auto" loop></audio>
+  <script src="script.js"></script>
+</div>
+</body>
+</html>
